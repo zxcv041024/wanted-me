@@ -1,0 +1,183 @@
+/* Static blood traces remain decorative; all controls and text stay above them. */
+:root {
+  --bg: #070709;
+  --surface: #110d12;
+  --line: #382128;
+  --red: #b83b49;
+  --blood-texture: url('./assets/blood-spatter.svg');
+  background: #070709;
+}
+
+body { background: #070709; }
+::selection { background: #77202d; color: #fff3e6; }
+.workspace {
+  min-height: 100vh;
+  background: radial-gradient(ellipse at 92% 1%, #4b101b38, transparent 48%), #08080b;
+}
+.rail { background: #08080b; border-color: #342128; }
+.topbar { background: #0b090cd9; border-color: #39232a; }
+.rail-button.active { color: #edc4bb; background: linear-gradient(90deg, #70152342, transparent); }
+.rail-button.active:before { background: #b83b49; }
+.status-dot { box-shadow: 0 0 9px #a8203544; }
+.global-grain { opacity: .045; }
+
+.case-intro { position: relative; isolation: isolate; }
+.case-intro:before {
+  content: '';
+  position: absolute;
+  width: min(420px, 47%);
+  height: 300px;
+  right: -8px;
+  top: -85px;
+  background: var(--blood-texture) center / contain no-repeat;
+  opacity: .68;
+  transform: rotate(18deg);
+  pointer-events: none;
+  z-index: -1;
+}
+.intro-title-row h1 { color: #eee6da; text-shadow: 2px 3px 0 #3e101b55; }
+.intro-title-row h1>span:first-child, .title-period { color: #bc3948; }
+.classified-stamp { color: #c35e63; border-color: #87313b; outline-color: #87313b; opacity: .8; }
+.intro-kicker, .section-label .eyebrow { color: #d1aaa1; }
+.investigation-section { border-color: #48252d; background: #100c11; box-shadow: 0 18px 45px #0008; }
+.briefing { background: radial-gradient(ellipse at top left, #4b172330, transparent 70%), #100d12; border-color: #3d252d; }
+.briefing h2 span { color: #d0aea1; }
+.briefing-question { border-color: #8e2636; }
+.briefing-question>span { color: #d09891; }
+.warning-note { color: #c18a8b; }
+.primary { background: #7d1828; border-color: #bc4b58; color: #fff1e9; box-shadow: inset 0 1px 0 #f2a9ac15, 0 4px 16px #36000b30; }
+.primary:hover { background: #9c2436; border-color: #d86a73; }
+.primary:disabled { background: #342129; border-color: #65414a; }
+.secondary { background: #1d151c; border-color: #63404a; }
+.secondary:hover { background: #30202a; border-color: #a56570; }
+.danger-button { background: #47152066; border-color: #a34854; color: #f1b5b8; }
+
+.evidence-board { background: radial-gradient(ellipse at 42% 8%, #6b27352b, transparent 62%), radial-gradient(ellipse at center, #211b1b 10%, #0d0b0e 85%); }
+.evidence-board:after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--blood-texture) right -95px top -140px / 440px no-repeat,
+    var(--blood-texture) left -180px bottom -140px / 500px no-repeat;
+  opacity: .85;
+  pointer-events: none;
+  z-index: 1;
+}
+.board-heading, .board-coordinate { z-index: 5; }
+.board-grid { box-shadow: inset 0 0 100px #000b; }
+.red-threads { z-index: 2; }
+.red-threads path { stroke: #a82c3e; }
+.red-threads .thread-new { stroke: #d45665; }
+.center-token { background: radial-gradient(ellipse, #170e13, transparent 72%); color: #c7a59c; }
+.board-paper { background-color: #b1a18e; box-shadow: 2px 4px 10px #000a; }
+.board-paper:after {
+  content: '';
+  position: absolute;
+  width: 82px;
+  height: 80px;
+  right: -30px;
+  bottom: -24px;
+  background: var(--blood-texture) center / 170px no-repeat;
+  opacity: .65;
+  pointer-events: none;
+}
+.suspect-polaroid { background: #bfb09a; box-shadow: 3px 7px 16px #000c; }
+.suspect-polaroid.discovered { background: #d0c0a9; }
+.suspect-polaroid:after {
+  content: '';
+  position: absolute;
+  width: 72px;
+  height: 55px;
+  right: -3px;
+  top: -5px;
+  background: var(--blood-texture) center / 135px no-repeat;
+  opacity: .75;
+  pointer-events: none;
+  z-index: 4;
+}
+.polaroid-1:after, .polaroid-3:after { right: auto; left: -7px; top: -12px; transform: rotate(133deg); opacity: .6; }
+.scene-sprite, .scene-override { filter: saturate(.72) contrast(1.08) brightness(.94); }
+.scene-shade { background: linear-gradient(180deg, #25040d13, #10010825 45%, #05030699); box-shadow: inset 0 0 30px #0006; }
+.scene:after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--blood-texture) right -75px top -90px / 260px no-repeat;
+  opacity: .74;
+  pointer-events: none;
+  z-index: 1;
+}
+.scene-1:after { background-position: left -100px bottom -100px; background-size: 290px; opacity: .6; }
+.scene-2:after { background-position: right -110px bottom -90px; background-size: 300px; opacity: .82; }
+.scene-3:after { background-position: left -105px top -100px; background-size: 300px; opacity: .65; }
+
+.chapter-card { background: linear-gradient(130deg, #1a1017, #0e0c11); border-color: #3c2630; }
+.chapter-card.current { border-color: #a74655; background: linear-gradient(130deg, #381923, #171015); }
+.chapter-card:hover:enabled { border-color: #c37078; background: #2c1721; }
+.chapter-card.current .chapter-top, .chapter-card.current .chapter-bottom { color: #e2a5a5; }
+.chapter-bottom, .footer { border-color: #39252e; }
+.modal-scrim { background: #020103e8; }
+.modal { background: #100c12; border-color: #66333f; box-shadow: 0 35px 150px #000e, 0 0 70px #52041517; }
+.modal-header { background: linear-gradient(100deg, #1e1019, #0c0a0f); border-color: #512a35; }
+.modal-header .eyebrow { color: #cf939d; }
+.chapter-banner { background: #0c070e; }
+.chapter-banner:after { background: linear-gradient(90deg, #110a12 20%, #110a12d9 50%, #110a1220); }
+.puzzle-content { background: radial-gradient(ellipse at top right, #55112320, transparent 55%), #110d13; }
+.category-slot { background: #23121c44; border-color: #77525f; }
+.category-slot:hover { background: #5f233130; border-color: #cc8a93; }
+.clue-card, .record-card, .employment-record { background-color: #c7b496; }
+.clue-card, .record-card { overflow: hidden; isolation: isolate; }
+.clue-card:before, .record-card:before {
+  content: '';
+  position: absolute;
+  width: 110px;
+  height: 95px;
+  right: -32px;
+  top: -40px;
+  background: var(--blood-texture) center / 180px no-repeat;
+  opacity: .48;
+  pointer-events: none;
+  z-index: -1;
+}
+.record-card { position: relative; }
+.clue-card:nth-child(2n):before { right: auto; left: -45px; top: auto; bottom: -40px; transform: rotate(95deg); opacity: .35; }
+.clue-card.selected { background: #e1c7aa; border-color: #a82e44; box-shadow: 0 0 0 2px #a82e443d; }
+.timeline-desk { background: #09080dc9; border-color: #4e303e; }
+.timeline-row, .puzzle-footer { border-color: #3e2834; }
+.order-actions button { background: #301e2a; }
+.fact-card { background: #19121c; border-color: #4e3546; }
+.fact-card:hover { background: #2a1824; border-color: #a65a70; }
+.fact-card.selected { background: #3b1c29; border-color: #ca7a83; }
+.selected .checkbox { background: #e0b6ac; border-color: #e0b6ac; color: #42121f; }
+.value-options>button { background: #18121b; border-color: #4a3343; }
+.value-options>button.selected { background: #3b1b2b; border-color: #c98b91; }
+.hint-box { background: #48222d38; border-color: #79505c; color: #e2c2b4; }
+.hint-button { color: #dbb5ae; border-color: #79505c; }
+.alert-pill { background: #65132740; color: #f0a0ae; border-color: #b4495f; }
+.collision-panel h3 em { color: #ef9aa9; }
+.identity-cards>button.connected { border-color: #bd6577; background: #391c2b; }
+.identity-token { background: #2e1222; border-color: #bb657c; color: #efbec4; }
+.presentation-bar { background: #160e16fa; border-color: #713146; }
+.presentation-bar .presentation-next { background: #65172b; border-color: #a84762; }
+
+.suspect-detail .scene:after { background-size: 480px; background-position: right -135px top -160px; opacity: .65; }
+.chapter-banner .scene:after { background-size: 350px; background-position: right -90px bottom -130px; }
+.ending-portrait:after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--blood-texture) right -130px top -120px / 390px no-repeat;
+  opacity: .45;
+  pointer-events: none;
+  z-index: 1;
+}
+.ending-copy { background: radial-gradient(ellipse at top right, #58152718, transparent 60%), #100d13; }
+
+@media (max-width: 690px) {
+  .case-intro:before { width: 200px; height: 220px; top: -75px; right: -12px; opacity: .52; }
+  .evidence-board:after { background-size: 290px, 330px; background-position: right -110px top -100px, left -150px bottom -105px; }
+  .suspect-polaroid:after { width: 57px; height: 48px; background-size: 110px; }
+  .scene:after { background-size: 210px; background-position: right -70px top -70px; }
+  .scene-1:after, .scene-3:after { background-position: left -95px bottom -85px; }
+  .scene-2:after { background-position: right -90px bottom -95px; }
+}
