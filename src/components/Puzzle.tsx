@@ -25,7 +25,7 @@ export function Puzzle({ chapter, draft, update, finish, sound }: Props) {
   const selected = Array.isArray(draft.selected) ? draft.selected : [];
 
   if (chapter === 0 || chapter === 2) {
-    const cards = chapter === 0 ? traces : research;
+    const cards = chapter === 0 ? traces : [research[2], research[0], research[3], research[1]];
     const categories = chapter === 0 ? ['일상', '직업', '불명'] : ['연구 동기', '연구 목표', '실험 과정', '관찰된 한계'];
     return <div className="matching-puzzle">
       <div className="desk-label"><span>자료 보관함</span><span>{Object.keys(assignments).length} / {cards.length} 연결</span></div>

@@ -32,12 +32,12 @@ export const research = [
 
 export const timeline = [
   { id: 'birth', title: '방콕 출생', note: '시작점' },
-  { id: 'move', title: '한국 이주', note: '3살까지 방콕에서 생활한 뒤' },
+  { id: 'move', title: '한국 이주', note: '방콕에서 생활한 뒤' },
   { id: 'school', title: '바이오 고등학교', note: '한국바이오마이스터고등학교 바이오제약과' },
   { id: 'project', title: '감피 탄닌 공동연구', note: '고등학교 재학 중' },
-  { id: 'job', title: '한미약품 취업', note: '19살' },
-  { id: 'air', title: '공군 입대·복무', note: '21살 · 군산의 미군 관련 부대 복무 경험' },
-  { id: 'college', title: '가천대 컴퓨터공학과 입학', note: '23살' },
+  { id: 'job', title: '한미약품 취업', note: '취업 기록' },
+  { id: 'air', title: '공군 입대·복무', note: '군산의 미군 관련 부대 복무 경험' },
+  { id: 'college', title: '가천대 컴퓨터공학과 입학', note: '대학 진학 기록' },
 ];
 
 export const motives = [
