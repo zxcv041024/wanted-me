@@ -173,6 +173,14 @@ body { background: #070709; }
 }
 .ending-copy { background: radial-gradient(ellipse at top right, #58152718, transparent 60%), #100d13; }
 
+/* Reveal the supplied portrait in full, keeping the face clear of the case stamp. */
+.ending-portrait>img { object-fit: contain; object-position: center top; background: #f2f0ec; }
+.ending-portrait:has(>img) { background: #f2f0ec; }
+.ending-portrait:has(>img):after { background-position: right -195px top -180px; background-size: 420px; opacity: .3; }
+.ending-portrait:has(>img) .ending-scan { opacity: .2; }
+.ending-portrait:has(>img) .ending-id { left: 16px; bottom: 16px; padding: 6px 9px; color: #eee9de; background: #110e11df; }
+.ending-portrait:has(>img) .ending-stamp { left: auto; right: 18px; bottom: 20px; font-size: 22px; padding: 8px 13px; background: #08110cb8; }
+
 @media (max-width: 690px) {
   .case-intro:before { width: 200px; height: 220px; top: -75px; right: -12px; opacity: .52; }
   .evidence-board:after { background-size: 290px, 330px; background-position: right -110px top -100px, left -150px bottom -105px; }
@@ -180,4 +188,5 @@ body { background: #070709; }
   .scene:after { background-size: 210px; background-position: right -70px top -70px; }
   .scene-1:after, .scene-3:after { background-position: left -95px bottom -85px; }
   .scene-2:after { background-position: right -90px bottom -95px; }
+  .ending-portrait:has(>img) { height: 380px; min-height: 380px; }
 }
